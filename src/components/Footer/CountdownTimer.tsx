@@ -35,16 +35,16 @@ const calculateTimeLeft = (weddingDate: Date): TimeLeft | null => {
 };
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(
-    calculateTimeLeft(weddingDate)
-  );
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setIsClient(true);
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(weddingDate));
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(timer);
   }, [weddingDate]);
 
   const timerComponents = [
@@ -56,7 +56,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
 
   return (
     <div className="text-black font-marcellus text-xl tracking-widest flex gap-4 justify-center">
-      {timeLeft ? (
+      {isClient && timeLeft ? (
         timerComponents.map(({ key, label }) => (
           <span key={key} className="mx-1 text-center">
             <span className="block text-3xl">
@@ -65,8 +65,10 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
             <span className="block text-sm">{label}</span>
           </span>
         ))
-      ) : (
+      ) : isClient && !timeLeft ? (
         <span>Wesele już się odbyło!</span>
+      ) : (
+        <span>Loading...</span>
       )}
     </div>
   );
