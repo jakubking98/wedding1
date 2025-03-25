@@ -1,81 +1,70 @@
 "use client";
 
-// src/components/Footer/CountdownTimer.tsx
-import React, { useState, useEffect, JSX, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
   weddingDate: Date;
 }
 
 interface TimeLeft {
-  days?: number;
-  hours?: number;
-  minutes?: number;
-  seconds?: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
+const calculateTimeLeft = (weddingDate: Date): TimeLeft | null => {
+  const now = new Date();
+  const difference = +weddingDate - +now;
+
+  if (difference <= 0) {
+    return null; // Wedding date is in the past
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / 1000 / 60) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
+};
+
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
-  const calculateTimeLeft = useCallback((): TimeLeft => {
-    const now = new Date();
-    const difference = +weddingDate - +now;
-    let timeLeft: TimeLeft = {};
-
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / 1000 / 60) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      timeLeft = {
-        days,
-        hours,
-        minutes,
-        seconds,
-      };
-    }
-
-    return timeLeft;
-  });
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(
+    calculateTimeLeft(weddingDate)
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(weddingDate));
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [calculateTimeLeft]);
+  }, [weddingDate]);
 
-  const timerComponents: JSX.Element[] = [];
-
-  Object.keys(timeLeft).forEach((interval) => {
-    const key = interval as keyof TimeLeft;
-    if (!timeLeft[key]) {
-      return;
-    }
-    const value = timeLeft[key]!; // Non-null assertion because we checked if it exists
-    const label =
-      interval === "days"
-        ? "dni"
-        : interval === "hours"
-        ? "godzin"
-        : interval === "minutes"
-        ? "minut"
-        : "sekund";
-
-    timerComponents.push(
-      <span key={interval} className="mx-1 text-center">
-        <span className="block text-3xl">{value}</span>
-        <span className="block text-sm">{label}</span>
-      </span>
-    );
-  });
+  const timerComponents = [
+    { key: "days", label: "dni" },
+    { key: "hours", label: "godzin" },
+    { key: "minutes", label: "minut" },
+    { key: "seconds", label: "sekund" },
+  ];
 
   return (
     <div className="text-black font-marcellus text-xl tracking-widest flex gap-4 justify-center">
-      {timerComponents.length ? (
-        timerComponents
+      {timeLeft ? (
+        timerComponents.map(({ key, label }) => (
+          <span key={key} className="mx-1 text-center">
+            <span className="block text-3xl">
+              {timeLeft[key as keyof TimeLeft]}
+            </span>
+            <span className="block text-sm">{label}</span>
+          </span>
+        ))
       ) : (
         <span>Wesele już się odbyło!</span>
       )}
