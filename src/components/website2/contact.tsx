@@ -77,7 +77,7 @@ export default function Contact() {
           </div>
           <div className="flex items-center justify-center">
             <button
-              className="bg-OrcheidDark hover:bg-Orcheid text-white font-bold py-2 px-2 rounded-full focus:outline-none focus:shadow-outline flex items-center gap-2 transition-colors duration-300"
+              className="bg-OrcheidDark hover:bg-Orcheid text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline flex items-center gap-2 transition-colors duration-300"
               type="submit"
             >
               Wyślij

@@ -44,29 +44,6 @@ const Map: React.FC<MapProps> = ({
         const map = new google.maps.Map(mapRef.current, mapOptions);
         console.log("map created", map);
 
-        const addresses: {
-          address: string;
-          label: string;
-          name: string;
-          icon: string;
-          infoWindowIcon: React.ReactNode;
-        }[] = [
-          {
-            address: ceremonyAddress,
-            label: "Ceremonia Ślubu",
-            name: ceremonyName,
-            icon: "/page2/wedding-ring.png",
-            infoWindowIcon: <LuChurch size={30} color="#9966CC" />,
-          },
-          {
-            address: receptionAddress,
-            label: "Przyjęcie Weselne",
-            name: receptionName,
-            icon: "/page2/dinner-table.png",
-            infoWindowIcon: <RiRestaurant2Line size={30} color="#9966CC" />,
-          },
-        ];
-
         const bounds = new google.maps.LatLngBounds();
         let ceremonyLocation: google.maps.LatLng | null = null;
 
