@@ -1,19 +1,22 @@
-import AboutSection from "@/components/AboutSection/AboutSection";
-import Footer from "@/components/Footer/Footer";
-import Header1 from "@/components/headers/header1/Header1";
-import SectionUs from "@/components/sectionUs/SectionUs";
-import WeddingDetails from "@/components/WeddingDetails";
-// import WeddingSection from "@/components/WeddingSection/WeddingSection";
+import AboutSection from "@/components/website1/AboutSection/AboutSection";
+import Footer from "@/components/website1/Footer/Footer";
+import Header from "@/components/website1/Header/Header";
+import Menu from "@/components/website1/Menu";
+import SectionUs from "@/components/website1/sectionUs/SectionUs";
+import WeddingDetails from "@/components/website1/WeddingDetails";
 import React from "react";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen max-w-screen overflow-hidden ">
-      <Header1 />
-      <SectionUs />
-      <AboutSection />
-      <WeddingDetails />
-      <Footer />
-    </div>
+    <>
+      <Menu />
+      <div className="relative min-h-screen max-w-screen overflow-hidden ">
+        <Header />
+        <SectionUs />
+        <AboutSection />
+        <WeddingDetails />
+        <Footer />
+      </div>
+    </>
   );
 }

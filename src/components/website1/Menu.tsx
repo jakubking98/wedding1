@@ -50,7 +50,6 @@ const Menu = () => {
       } `}
     >
       <div className="max-w-[1650px] h-full mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={toggleMobileMenu}
@@ -63,8 +62,6 @@ const Menu = () => {
             )}
           </button>
         </div>
-
-        {/* Mobile Menu */}
         <div
           ref={mobileMenuRef}
           className={`md:hidden absolute top-[90px] left-0 w-full bg-LitePink transition-all duration-300 overflow-hidden ${
@@ -86,7 +83,6 @@ const Menu = () => {
           </ul>
         </div>
 
-        {/* Left Links (Desktop) */}
         <ul className="hidden md:flex space-x-6">
           {WebsiteContent.menuLinks.slice(0, 2).map((link, index) => (
             <li key={index}>
@@ -100,7 +96,6 @@ const Menu = () => {
           ))}
         </ul>
 
-        {/* Center Logo/Link */}
         <Link
           href="/"
           className="text-Pastel font-marcellus text-2xl absolute left-1/2 -translate-x-1/2"
@@ -108,7 +103,6 @@ const Menu = () => {
           {WebsiteContent.CentralText}
         </Link>
 
-        {/* Right Links (Desktop) */}
         <ul className="hidden md:flex space-x-8">
           {WebsiteContent.menuLinks.slice(2).map((link, index) => (
             <li key={index}>

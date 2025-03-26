@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import LineInHeader from "./LineInHeader";
-import { WebsiteContent } from "@/components/WebsiteContent";
+import { WebsiteContent } from "../WebsiteContent";
 
-export default function Header1() {
+export default function Header() {
   return (
     <header className="relative w-[100vw] h-[100vh] overflow-hidden ">
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#e9d7d2] from-10% via-transparent via-30% to-[#9c584b] to-100%"></div>

@@ -1,28 +1,19 @@
 "use client";
-
 import React from "react";
 import { WebsiteContent } from "./WebsiteContent";
 import TreeSvg from "./sectionUs/TreeSvg";
-import LineInHeader from "./headers/header1/LineInHeader";
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import LineInHeader from "./Header/LineInHeader";
 import CeremonyDetails from "./WeddingSlider/CeremonyDetails";
 import ReceptionDetails from "./WeddingSlider/ReceptionDetails";
 
-// Główny komponent WeddingDetails
 export default function WeddingDetails() {
   return (
     <section className="w-full bg-white py-24 px-4 relative overflow-hidden">
-      {/* Decorative Elements */}
       <div className="absolute top-10 md:top-0  right-0 md:-left-1/3  -translate-y-1/4 -translate-x-1/2 md:-translate-x-[75%] md:-translate-y-1/2 animate-treeRotate2 text-LitePink z-0 ">
         <TreeSvg />
       </div>
@@ -31,7 +22,6 @@ export default function WeddingDetails() {
       </div>
 
       <div className="max-w-[1650px] mx-auto relative z-10 group">
-        {/* Swiper Container */}
         <Swiper
           spaceBetween={20}
           slidesPerView={1}
@@ -48,7 +38,6 @@ export default function WeddingDetails() {
             },
           }}
         >
-          {/* Custom Navigation Buttons */}
           <div className="swiper-button-prev absolute top-1/2 -translate-y-1/2 left-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100 md:group-hover:opacity-100 md:left-[-2rem]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,9 +70,7 @@ export default function WeddingDetails() {
               />
             </svg>
           </div>
-          {/* Ceremony Slide */}
           <SwiperSlide>
-            {/* Header */}
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-TextN mb-4">
                 {WebsiteContent.weddingCeremony.title}
@@ -97,9 +84,7 @@ export default function WeddingDetails() {
               <CeremonyDetails />
             </div>
           </SwiperSlide>
-          {/* Reception Slide */}
           <SwiperSlide>
-            {/* Header */}
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-TextN mb-4">
                 {WebsiteContent.weddingReception.title}

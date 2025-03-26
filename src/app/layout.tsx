@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Baskervville, Marcellus, Sora } from "next/font/google";
+import {
+  Baskervville,
+  Marcellus,
+  Sora,
+  Comfortaa,
+  Allura,
+} from "next/font/google";
 import "@/style/globals.css";
-import Menu from "@/components/Menu";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -24,6 +29,20 @@ const baskervville = Baskervville({
   display: "swap",
 });
 
+const comfortaa = Comfortaa({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // Add all weights you need
+  variable: "--font-comfortaa",
+  display: "swap",
+});
+
+const allura = Allura({
+  subsets: ["latin"],
+  weight: ["400"], // Allura only has one weight
+  variable: "--font-allura",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "JezioroSfera",
   description: "Strona JezioroSfera",
@@ -37,12 +56,16 @@ export default function RootLayout({
   return (
     <html
       lang="pl"
-      className={`${sora.variable} ${marcellus.variable} ${baskervville.variable}`}
+      className={`${sora.variable} ${marcellus.variable} ${baskervville.variable} ${comfortaa.variable} ${allura.variable}`}
     >
-      <body className={`font-sora`}>
-        <Menu />
-        {children}
-      </body>
+      <head>
+        <script
+          async
+          defer
+          src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyC035CFnniChiT8XlNHgfTk9xUCiL7lFwo&libraries=places`}
+        ></script>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { WebsiteContent } from "../WebsiteContent";
 import CountdownTimer from "./CountdownTimer";
+import { WebsiteContent } from "../WebsiteContent";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,6 @@ const Footer = () => {
   return (
     <footer className="bg-LitePink text-TextN py-12 px-2 md:px-4">
       <div className="max-w-[1650px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-        {/* Left Section - Logo and Description */}
         <div className="text-center md:text-left">
           <Link
             href="/"
@@ -23,7 +22,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Countdown Timer */}
         <div className="w-full md:w-auto text-center">
           <p className="font-sora text-sm md:text-base mb-2">
             Do naszego ślubu zostało:
@@ -31,7 +29,6 @@ const Footer = () => {
           <CountdownTimer weddingDate={weddingDate} />
         </div>
 
-        {/* Right Section - Copyright */}
         <div className="text-center md:text-right">
           <p className="text-xs md:text-sm font-sora">
             &copy; {currentYear} Hanna & Jakub. Wszelkie prawa zastrzeżone.

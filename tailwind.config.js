@@ -8,10 +8,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sora: ["Sora", "sans-serif"],
+        // sora: ["Sora", "sans-serif"], // Remove this line
         marcellus: ["var(--font-marcellus)"],
         baskervville: ["var(--font-baskervville)"],
+        comfortaa: ["var(--font-comfortaa)"], // Add this line
+        allura: ["var(--font-allura)"], // Add this line
       },
+
+      // Orcheid: "#E382D3",
+      // OrcheidDark: "#B70B9D",
       colors: {
         MenuC: "#BCBBB3",
         MenuC2: "#A4A297",
@@ -19,8 +24,12 @@ module.exports = {
         TextN: "#1A1B1A",
         TextW: "#F4F2EE",
         Line: "#BCBBB3",
+        //koloru leyout1
         LitePink: "#e9d7d2",
         Pastel: "#8e5c4e",
+        //koloru leyout2
+        Orcheid: "#e9d7d2",
+        OrcheidDark: "#8e5c4e",
       },
       textShadow: {
         default: "0 2px 4px rgba(0, 0, 0, 0.10)",
@@ -41,10 +50,16 @@ module.exports = {
           "0%": { transform: "rotate(-40deg)" },
           "100%": { transform: "rotate(-20deg)" },
         },
+        float: {
+          "0%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+          "100%": { transform: "translateY(0px)" },
+        },
       },
       animation: {
         treeRotate: "treeRotate 15s ease-in-out infinite alternate",
         treeRotate2: "treeRotate2 15s ease-in-out infinite alternate",
+        float: "float 5s ease-in-out infinite",
       },
     },
   },

@@ -91,22 +91,6 @@ export const WebsiteContent = {
     image2: "/About2.jpg",
   },
 
-  // //Wedding Section
-  // weddingLocation: {
-  //   title: "Gdzie i Kiedy?",
-  //   subtitle: "Zapraszamy do wspólnego świętowania!",
-  //   description:
-  //     "Z radością zapraszamy Was na uroczystość zaślubin, która odbędzie się w malowniczym miejscu, otoczonym pięknem natury. Po ceremonii zapraszamy na przyjęcie weselne, gdzie będziemy mogli wspólnie świętować i cieszyć się tym wyjątkowym dniem.",
-  //   dressCode: "Elegancki, ale wygodny - chcemy, abyście czuli się swobodnie!",
-  //   placeName: "Dwór w Dolinie",
-  //   placeAddress: "ul. Kwiatowa 12, 00-000 Piękna Wieś",
-  //   date: "12 Lipca 2025",
-  //   time: "15:00",
-  //   additionalInfoTitle: "Dodatkowe Informacje",
-  //   additionalInfo:
-  //     "Dla gości dostępny jest przestronny parking. W razie pytań, prosimy o kontakt.",
-  // },
-
   //Wedding Section
   weddingCeremony: {
     title: "Ceremonia Ślubna",

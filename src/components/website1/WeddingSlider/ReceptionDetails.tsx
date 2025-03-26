@@ -1,17 +1,13 @@
-// ReceptionDetails.tsx
 import Image from "next/image";
 import { WebsiteContent } from "../WebsiteContent";
 
-// Komponent dla szczegółów przyjęcia weselnego
 const ReceptionDetails = () => {
   const { weddingReception } = WebsiteContent;
-  const receptionImage = "/weddingSection.jpg"; // Replace with your image path
+  const receptionImage = "/weddingSection.jpg";
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-      {/* Left Column - Text Content */}
       <div className="lg:w-2/3 w-full relative">
-        {/* Changed background here */}
         <div className="bg-Pastel border-2 border-Pastel p-6 md:p-12 rounded-3xl shadow-xl relative z-20">
           <div className="prose prose-sm md:prose-lg text-white font-marcellus">
             <p className="text-base md:text-lg leading-relaxed">
@@ -50,9 +46,7 @@ const ReceptionDetails = () => {
         </div>
       </div>
 
-      {/* Right Column - Image */}
       <div className="lg:w-1/2 w-full">
-        {/* Usunięto stałą wysokość */}
         <div className=" border-2 border-Pastel p-4 shadow-lg overflow-hidden z-20 rounded-3xl">
           <Image
             src={receptionImage}
