@@ -6,11 +6,17 @@ export default function Contact() {
   const [showChildrenDetails, setShowChildrenDetails] = useState(false);
   const [childrenCount, setChildrenCount] = useState(0);
   const [childAges, setChildAges] = useState<string[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showTransport, setShowTransport] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [companion, setCompanion] = useState("no");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [mainVegetarian, setMainVegetarian] = useState("no");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [companionVegetarian, setCompanionVegetarian] = useState("no");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [children, setChildren] = useState("no");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [transport, setTransport] = useState("no");
 
   const handleCompanionChange = (
