@@ -66,7 +66,7 @@ const Map: React.FC<MapProps> = ({
 
           ctx.beginPath();
           ctx.arc(30, 30, 30, 0, 2 * Math.PI);
-          ctx.fillStyle = "#9966CC";
+          ctx.fillStyle = "#8e5c4e";
           ctx.fill();
           const img = new Image();
           img.src = icon;
@@ -120,7 +120,7 @@ const Map: React.FC<MapProps> = ({
               ceremonyName,
               "/page2/wedding-ring.png",
               ceremonyAddress,
-              <LuChurch size={30} color="#9966CC" />
+              <LuChurch size={30} color="#8e5c4e" />
             );
 
             map.setCenter(ceremonyLocation);
@@ -138,7 +138,7 @@ const Map: React.FC<MapProps> = ({
                     receptionName,
                     "/page2/dinner-table.png",
                     receptionAddress,
-                    <RiRestaurant2Line size={30} color="#9966CC" />
+                    <RiRestaurant2Line size={30} color="#8e5c4e" />
                   );
                 } else {
                   console.error(
