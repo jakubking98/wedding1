@@ -1,6 +1,20 @@
 "use client";
 import React, { useState } from "react";
 
+interface Question {
+  question: string;
+  answer: string;
+}
+
+interface FaqCategory {
+  category: string;
+  questions: Question[];
+}
+
+interface FaqItemProps {
+  question: string;
+  answer: string;
+}
 export default function FAQ() {
   const faqs = [
     {
@@ -129,8 +143,8 @@ export default function FAQ() {
   ];
 
   // Function to split the faqs into three columns
-  const splitFaqsIntoColumns = (faqs: any[]) => {
-    const columns = [[], [], []];
+  const splitFaqsIntoColumns = (faqs: FaqCategory[]): FaqCategory[][] => {
+    const columns: FaqCategory[][] = [[], [], []];
     let columnIndex = 0;
     faqs.forEach((faq) => {
       columns[columnIndex].push(faq);
@@ -176,7 +190,7 @@ export default function FAQ() {
   );
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
+function FaqItem({ question, answer }: FaqItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
