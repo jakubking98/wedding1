@@ -1,6 +1,7 @@
 import AboutUs from "@/components/website2/AboutUs/AboutUs";
 import CeremonyInfo from "@/components/website2/CeremonyInfo";
 import Contact from "@/components/website2/contact";
+import FAQ from "@/components/website2/FAQ";
 import Gallery from "@/components/website2/Galery";
 import Header from "@/components/website2/Header/Header";
 import Space from "@/components/website2/Space";
@@ -18,6 +19,8 @@ export default function page1() {
       <Story />
       <Space />
       <Gallery />
+      <Space />
+      <FAQ />
       <Space />
       <Contact />
     </div>
