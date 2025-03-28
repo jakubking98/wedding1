@@ -25,10 +25,10 @@ export default function CeremonyInfo() {
 
   return (
     <div className="w-full relative flex justify-center items-center  bg-white py-10 md:py-16">
-      <div className="absolute -top-1 w-full text-LitePink rotate-180">
+      <div className="absolute -top-1 w-full text-ColorWeb1 rotate-180">
         <LineInHeader />
       </div>
-      <div className="absolute bottom-0 w-full text-LitePink">
+      <div className="absolute bottom-0 w-full text-ColorWeb1">
         <LineInHeader />
       </div>
       <div className="w-full max-w-[1050px] md:bg-white z-10 text-center p-6 md:p-10 px-6 md:px-16 md:rounded-3xl md:shadow-lg">
@@ -85,14 +85,14 @@ export default function CeremonyInfo() {
                   href={WebsiteContent2.weddingCeremony.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 md:mt-4 bg-white text-OrcheidDark rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 hover:bg-gray-100 transition-colors font-comfortaa" // Reduced padding on mobile
+                  className="mt-2 md:mt-4 bg-white text-ColorWeb2 rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 hover:bg-gray-100 transition-colors font-comfortaa" // Reduced padding on mobile
                 >
                   <Image
                     src="/page2/map-pin.svg"
                     alt="Map Pin Icon"
                     width={25}
                     height={25}
-                    className="text-OrcheidDark"
+                    className="text-ColorWeb2"
                   />
                   Pokaż mapę
                 </a>
@@ -134,14 +134,14 @@ export default function CeremonyInfo() {
                   href={WebsiteContent2.weddingReception.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 md:mt-4 bg-white text-OrcheidDark rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 hover:bg-gray-100 transition-colors font-comfortaa" // Reduced padding on mobile
+                  className="mt-2 md:mt-4 bg-white text-ColorWeb2 rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 hover:bg-gray-100 transition-colors font-comfortaa" // Reduced padding on mobile
                 >
                   <Image
                     src="/page2/map-pin.svg"
                     alt="Map Pin Icon"
                     width={25}
                     height={25}
-                    className="text-OrcheidDark"
+                    className="text-ColorWeb2"
                   />
                   Pokaż mapę
                 </a>
