@@ -28,26 +28,26 @@ export default function Header() {
         priority
         sizes="100vw"
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-TextW">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
         <div className="w-full px-4 md:w-2/3 flex flex-col items-center justify-center text-center py-16 md:py-20">
-          <div className="mb-20">
+          <div className="mb-6 md:mb-20">
             <p className="text-lg md:text-xl font-comfortaa mb-4 tracking-wider">
               {headerText.topText1}
             </p>
-            <p className="text-sm md:text-base font-comfortaa mb-20 tracking-wider">
+            <p className="text-sm md:text-base font-comfortaa mb-6 md:mb-20 tracking-wider">
               {headerText.topText2}
             </p>
-            <p className="text-3xl md:text-4xl font-comfortaa tracking-wider">
+            <p className="text-2xl md:text-4xl font-comfortaa tracking-wider">
               {headerText.mainText}
             </p>
           </div>
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="flex items-center justify-center gap-2 my-8">
             <Image
               src="/page2/Group73.svg"
               alt="Left Icon"
               width={45}
               height={40}
-              className="text-white"
+              className="text-white hidden md:block"
               priority
             />
             <h2 className="text-4xl md:text-8xl font-allura tracking-widest">
@@ -58,11 +58,11 @@ export default function Header() {
               alt="Right Icon"
               width={45}
               height={40}
-              className="text-white"
+              className="text-white hidden md:block"
               priority
             />
           </div>
-          <div className="flex flex-col items-center justify-center gap-2 mt-10 mb-20">
+          <div className="flex flex-col items-center justify-center gap-2 mt-10 md:mt-6 mb-10 md:mb-20">
             <div className="flex items-center justify-center gap-3">
               <FaCircle className="text-TextW text-[0.5em] mb-1" />
               <p className="text-2xl md:text-3xl leading-none font-comfortaa tracking-wider">

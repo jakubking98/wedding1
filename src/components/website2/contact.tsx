@@ -6,6 +6,7 @@ export default function Contact() {
   const [showChildrenDetails, setShowChildrenDetails] = useState(false);
   const [childrenCount, setChildrenCount] = useState(0);
   const [childAges, setChildAges] = useState<string[]>([]);
+  const [childVegetarian, setChildVegetarian] = useState<boolean[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showTransport, setShowTransport] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -33,6 +34,7 @@ export default function Contact() {
     if (!isChildren) {
       setChildrenCount(0);
       setChildAges([]);
+      setChildVegetarian([]);
     }
   };
 
@@ -42,6 +44,7 @@ export default function Contact() {
     const count = parseInt(event.target.value, 10);
     setChildrenCount(isNaN(count) ? 0 : count);
     setChildAges(Array(isNaN(count) ? 0 : count).fill("Do 3 lat"));
+    setChildVegetarian(Array(isNaN(count) ? 0 : count).fill(false));
   };
 
   const handleChildAgeChange = (
@@ -51,6 +54,15 @@ export default function Contact() {
     const newAges = [...childAges];
     newAges[index] = event.target.value;
     setChildAges(newAges);
+  };
+
+  const handleChildVegetarianChange = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const newVegetarian = [...childVegetarian];
+    newVegetarian[index] = event.target.value === "yes";
+    setChildVegetarian(newVegetarian);
   };
 
   const handleTransportChange = (
@@ -72,62 +84,10 @@ export default function Contact() {
     setCompanionVegetarian(event.target.value);
   };
 
-  const renderChildMealOptions = () => {
-    const childMealOptions = [];
-    for (let i = 0; i < childrenCount; i++) {
-      childMealOptions.push(
-        <div key={i} className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-gray-700 text-sm font-medium mb-2">
-              Dziecko {i + 1} - Przedział wiekowy *
-            </label>
-            <select
-              className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-OrcheidDark transition-shadow duration-300"
-              value={childAges[i]}
-              onChange={(event) => handleChildAgeChange(i, event)}
-              required
-            >
-              <option value="Do 3 lat">Do 3 lat</option>
-              <option value="3-10 lat">3-10 lat</option>
-              <option value="Powyżej 10 lat">Powyżej 10 lat</option>
-            </select>
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-medium mb-2">
-              Dziecko {i + 1} - Posiłek Wege/Vegan? *
-            </label>
-            <div className="flex space-x-6 mt-2 h-[48px] items-center">
-              <label className="inline-flex items-center relative">
-                <input
-                  type="radio"
-                  className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
-                  name={`child-${i}-vegetarian`}
-                  value="no"
-                  defaultChecked
-                />
-                <span className="ml-2 text-gray-700">Nie</span>
-              </label>
-              <label className="inline-flex items-center relative">
-                <input
-                  type="radio"
-                  className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
-                  name={`child-${i}-vegetarian`}
-                  value="yes"
-                />
-                <span className="ml-2 text-gray-700">Tak</span>
-              </label>
-            </div>
-          </div>
-        </div>
-      );
-    }
-    return childMealOptions;
-  };
-
   return (
-    <section id="rsvp" className="w-full relative py-20 bg-LitePink">
+    <section id="rsvp" className="w-full relative py-20 bg-ColorWeb1">
       <div className="max-w-6xl mx-auto bg-white p-8 border border-gray-200 rounded-2xl shadow-lg">
-        <h2 className="text-4xl font-bold text-OrcheidDark text-center mb-10 font-comfortaa">
+        <h2 className="text-4xl font-bold text-ColorWeb2 text-center mb-10 font-comfortaa">
           Potwierdź Obecność
         </h2>
         <form>
@@ -135,13 +95,13 @@ export default function Contact() {
             {/* Name */}
             <div className="flex flex-col">
               <label
-                className="block text-gray-700 text-sm font-medium mb-2"
+                className="block text-ColorWeb3 text-sm font-medium mb-2"
                 htmlFor="name"
               >
                 Imię i Nazwisko *
               </label>
               <input
-                className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-OrcheidDark transition-shadow duration-300 h-[48px]"
+                className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-ColorWeb3 leading-tight focus:outline-none focus:shadow-outline focus:border-ColorWeb2 transition-shadow duration-300 h-[48px]"
                 id="name"
                 type="text"
                 placeholder="Wpisz swoje imię i nazwisko"
@@ -152,32 +112,32 @@ export default function Contact() {
             {/* Companion */}
             <div className="flex flex-col">
               <label
-                className="block text-gray-700 text-sm font-medium mb-2"
+                className="block text-ColorWeb3 text-sm font-medium mb-2"
                 htmlFor="companion"
               >
                 Osoba towarzysząca? *
               </label>
-              <div className="flex space-x-6 mt-2 h-[48px] items-center">
+              <div className="flex space-x-6 h-[48px] items-center">
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="companion"
                     value="no"
                     onChange={handleCompanionChange}
                     defaultChecked
                   />
-                  <span className="ml-2 text-gray-700">Nie</span>
+                  <span className="ml-2 text-ColorWeb3">Nie</span>
                 </label>
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="companion"
                     value="yes"
                     onChange={handleCompanionChange}
                   />
-                  <span className="ml-2 text-gray-700">Tak</span>
+                  <span className="ml-2 text-ColorWeb3">Tak</span>
                 </label>
               </div>
             </div>
@@ -185,32 +145,32 @@ export default function Contact() {
             {/* Main Guest Meal */}
             <div className="flex flex-col">
               <label
-                className="block text-gray-700 text-sm font-medium mb-2"
+                className="block text-ColorWeb3 text-sm font-medium mb-2"
                 htmlFor="vegetarian"
               >
                 Posiłek Wege/Vegan? *
               </label>
-              <div className="flex space-x-6 mt-2 h-[48px] items-center">
+              <div className="flex space-x-6 h-[48px] items-center">
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="main-vegetarian"
                     value="no"
                     onChange={handleMainVegetarianChange}
                     defaultChecked
                   />
-                  <span className="ml-2 text-gray-700">Nie</span>
+                  <span className="ml-2 text-ColorWeb3">Nie</span>
                 </label>
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="main-vegetarian"
                     value="yes"
                     onChange={handleMainVegetarianChange}
                   />
-                  <span className="ml-2 text-gray-700">Tak</span>
+                  <span className="ml-2 text-ColorWeb3">Tak</span>
                 </label>
               </div>
             </div>
@@ -219,32 +179,32 @@ export default function Contact() {
             {showCompanionMeals && (
               <div className="flex flex-col">
                 <label
-                  className="block text-gray-700 text-sm font-medium mb-2"
+                  className="block text-ColorWeb3 text-sm font-medium mb-2"
                   htmlFor="companion-vegetarian"
                 >
                   Posiłek Wege/Vegan - Osoba towarzysząca? *
                 </label>
-                <div className="flex space-x-6 mt-2 h-[48px] items-center">
+                <div className="flex space-x-6 h-[48px] items-center">
                   <label className="inline-flex items-center relative">
                     <input
                       type="radio"
-                      className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                      className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                       name="companion-vegetarian"
                       value="no"
                       onChange={handleCompanionVegetarianChange}
                       defaultChecked
                     />
-                    <span className="ml-2 text-gray-700">Nie</span>
+                    <span className="ml-2 text-ColorWeb3">Nie</span>
                   </label>
                   <label className="inline-flex items-center relative">
                     <input
                       type="radio"
-                      className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                      className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                       name="companion-vegetarian"
                       value="yes"
                       onChange={handleCompanionVegetarianChange}
                     />
-                    <span className="ml-2 text-gray-700">Tak</span>
+                    <span className="ml-2 text-ColorWeb3">Tak</span>
                   </label>
                 </div>
               </div>
@@ -253,32 +213,32 @@ export default function Contact() {
             {/* Children */}
             <div className="flex flex-col">
               <label
-                className="block text-gray-700 text-sm font-medium mb-2"
+                className="block text-ColorWeb3 text-sm font-medium mb-2"
                 htmlFor="children"
               >
                 Dzieci? *
               </label>
-              <div className="flex space-x-6 mt-2 h-[48px] items-center">
+              <div className="flex space-x-6 h-[48px] items-center">
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="children"
                     value="no"
                     onChange={handleChildrenChange}
                     defaultChecked
                   />
-                  <span className="ml-2 text-gray-700">Nie</span>
+                  <span className="ml-2 text-ColorWeb3">Nie</span>
                 </label>
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="children"
                     value="yes"
                     onChange={handleChildrenChange}
                   />
-                  <span className="ml-2 text-gray-700">Tak</span>
+                  <span className="ml-2 text-ColorWeb3">Tak</span>
                 </label>
               </div>
             </div>
@@ -286,13 +246,13 @@ export default function Contact() {
             {showChildrenDetails && (
               <div className="flex flex-col">
                 <label
-                  className="block text-gray-700 text-sm font-medium mb-2"
+                  className="block text-ColorWeb3 text-sm font-medium mb-2"
                   htmlFor="childrenCount"
                 >
                   Ile dzieci? *
                 </label>
                 <input
-                  className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-OrcheidDark transition-shadow duration-300 h-[48px]"
+                  className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-ColorWeb3 leading-tight focus:outline-none focus:shadow-outline focus:border-ColorWeb2 transition-shadow duration-300 h-[48px]"
                   id="childrenCount"
                   type="number"
                   placeholder="Wpisz liczbę dzieci"
@@ -303,46 +263,97 @@ export default function Contact() {
                 />
               </div>
             )}
+            {/* Child Meal Options */}
+            {showChildrenDetails &&
+              Array.from({ length: childrenCount }).map((_, index) => (
+                <React.Fragment key={index}>
+                  <div className="flex flex-col">
+                    <label className="block text-ColorWeb3 text-sm font-medium mb-2">
+                      Dziecko {index + 1} - Przedział wiekowy *
+                    </label>
+                    <select
+                      className="shadow-sm appearance-none border rounded-xl w-full py-3 px-4 text-ColorWeb3 leading-tight focus:outline-none focus:shadow-outline focus:border-ColorWeb2 transition-shadow duration-300"
+                      value={childAges[index] || "Do 3 lat"}
+                      onChange={(event) => handleChildAgeChange(index, event)}
+                      required
+                    >
+                      <option value="Do 3 lat">Do 3 lat</option>
+                      <option value="3-10 lat">3-10 lat</option>
+                      <option value="Powyżej 10 lat">Powyżej 10 lat</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col">
+                    <label className="block text-ColorWeb3 text-sm font-medium mb-2">
+                      Dziecko {index + 1} - Posiłek Wege/Vegan? *
+                    </label>
+                    <div className="flex space-x-6 h-[48px] items-center">
+                      <label className="inline-flex items-center relative">
+                        <input
+                          type="radio"
+                          className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
+                          name={`child-${index}-vegetarian`}
+                          value="no"
+                          checked={childVegetarian[index] === false}
+                          onChange={(event) =>
+                            handleChildVegetarianChange(index, event)
+                          }
+                        />
+                        <span className="ml-2 text-ColorWeb3">Nie</span>
+                      </label>
+                      <label className="inline-flex items-center relative">
+                        <input
+                          type="radio"
+                          className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
+                          name={`child-${index}-vegetarian`}
+                          value="yes"
+                          checked={childVegetarian[index] === true}
+                          onChange={(event) =>
+                            handleChildVegetarianChange(index, event)
+                          }
+                        />
+                        <span className="ml-2 text-ColorWeb3">Tak</span>
+                      </label>
+                    </div>
+                  </div>
+                </React.Fragment>
+              ))}
             {/* Transport */}
             <div className="flex flex-col">
               <label
-                className="block text-gray-700 text-sm font-medium mb-2"
+                className="block text-ColorWeb3 text-sm font-medium mb-2"
                 htmlFor="transport"
               >
                 Transport zbiorowy z pod kościoła? *
               </label>
-              <div className="flex space-x-6 mt-2 h-[48px] items-center">
+              <div className="flex space-x-6 h-[48px] items-center">
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="transport"
                     value="no"
                     onChange={handleTransportChange}
                     defaultChecked
                   />
-                  <span className="ml-2 text-gray-700">Nie</span>
+                  <span className="ml-2 text-ColorWeb3">Nie</span>
                 </label>
                 <label className="inline-flex items-center relative">
                   <input
                     type="radio"
-                    className="form-radio h-5 w-5 appearance-none border border-gray-300 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-OrcheidDark cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-OrcheidDark checked:after:block"
+                    className="form-radio h-5 w-5 appearance-none border border-ColorWeb4 rounded-full checked:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ColorWeb2 cursor-pointer peer relative after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:rounded-full after:bg-transparent checked:after:bg-ColorWeb2 checked:after:block"
                     name="transport"
                     value="yes"
                     onChange={handleTransportChange}
                   />
-                  <span className="ml-2 text-gray-700">Tak</span>
+                  <span className="ml-2 text-ColorWeb3">Tak</span>
                 </label>
               </div>
             </div>
           </div>
 
-          {/* Child Meal Options */}
-          {showChildrenDetails && renderChildMealOptions()}
-
           <div className="flex items-center justify-center mt-8">
             <button
-              className="bg-OrcheidDark hover:bg-Orcheid text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline flex items-center gap-2 transition-colors duration-300"
+              className="bg-ColorWeb2 hover:bg-Orcheid text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline flex items-center gap-2 transition-colors duration-300"
               type="submit"
             >
               Potwierdź Obecność

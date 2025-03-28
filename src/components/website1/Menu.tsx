@@ -98,7 +98,7 @@ const Menu = () => {
 
         <Link
           href="/"
-          className="text-Pastel font-marcellus text-2xl absolute left-1/2 -translate-x-1/2"
+          className="text-TextN font-marcellus text-2xl absolute left-1/2 -translate-x-1/2"
         >
           {WebsiteContent.CentralText}
         </Link>

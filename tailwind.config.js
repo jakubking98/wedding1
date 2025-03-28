@@ -8,28 +8,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // sora: ["Sora", "sans-serif"], // Remove this line
+        //Website 1
         marcellus: ["var(--font-marcellus)"],
         baskervville: ["var(--font-baskervville)"],
-        comfortaa: ["var(--font-comfortaa)"], // Add this line
-        allura: ["var(--font-allura)"], // Add this line
+        //Website 2
+        comfortaa: ["var(--font-comfortaa)"],
+        allura: ["var(--font-allura)"],
       },
-
-      // Orcheid: "#E382D3",
-      // OrcheidDark: "#B70B9D",
       colors: {
-        MenuC: "#BCBBB3",
-        MenuC2: "#A4A297",
-        BodyC: "#F4F2EE",
-        TextN: "#1A1B1A",
-        TextW: "#F4F2EE",
-        Line: "#BCBBB3",
-        //koloru leyout1
+        //koloru leyout do dostoswania
+        ColorWeb1: "#e9d7d2",
+        ColorWeb2: "#8e5c4e",
+        ColorWeb3: "#282727",
+        ColorWeb4: "#786e69",
+
         LitePink: "#e9d7d2",
         Pastel: "#8e5c4e",
-        //koloru leyout2
-        Orcheid: "#e9d7d2",
-        OrcheidDark: "#8e5c4e",
       },
       textShadow: {
         default: "0 2px 4px rgba(0, 0, 0, 0.10)",

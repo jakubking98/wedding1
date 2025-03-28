@@ -60,12 +60,12 @@ const CountdownTimer2: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
         timerComponents.map(({ key, label }) => (
           <div
             key={key}
-            className="bg-white rounded-xl shadow-md p-4 text-center w-24 font-comfortaa"
+            className="bg-white rounded-xl shadow-md p-3 md:p-4 text-center w-24 font-comfortaa"
           >
             <span className="block text-3xl font-bold text-OrcheidDark">
               {timeLeft[key as keyof TimeLeft]}
             </span>
-            <span className="block text-sm uppercase text-gray-600">
+            <span className="block text-sm uppercase text-ColorWeb3">
               {label}
             </span>
           </div>

@@ -1,14 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { LuChurch } from "react-icons/lu";
 import { RiRestaurant2Line } from "react-icons/ri";
-import { renderToString } from "react-dom/server"; // Import renderToString
-
-// Define the type for the google object
-declare global {
-  interface Window {
-    google: typeof google;
-  }
-}
+import { renderToString } from "react-dom/server";
+import { WebsiteContent2 } from "./WebsiteContnet2";
 
 interface MapProps {
   ceremonyAddress: string;
@@ -66,7 +60,7 @@ const Map: React.FC<MapProps> = ({
 
           ctx.beginPath();
           ctx.arc(30, 30, 30, 0, 2 * Math.PI);
-          ctx.fillStyle = "#8e5c4e";
+          ctx.fillStyle = WebsiteContent2.mapMarkerColor;
           ctx.fill();
           const img = new Image();
           img.src = icon;
@@ -87,6 +81,13 @@ const Map: React.FC<MapProps> = ({
 
             const iconString = renderToString(infoWindowIcon);
 
+            // Create the "Jak dojechać?" button
+            const directionsButton = `<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+              address
+            )}" target="_blank" style="background-color: ${
+              WebsiteContent2.mapMarkerColor
+            }; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px;">Jak dojechać?</a>`;
+
             const infoWindow = new google.maps.InfoWindow({
               content: `<div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
               <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
@@ -95,6 +96,7 @@ const Map: React.FC<MapProps> = ({
               <h3 style="text-align: center; margin-bottom: 5px;">${label}</h3>
               <p style="margin-bottom: 5px; text-align: center;">${name}</p>
               <p style="text-align: center;">${address}</p>
+              ${directionsButton}
             </div>`,
             });
 
@@ -120,7 +122,7 @@ const Map: React.FC<MapProps> = ({
               ceremonyName,
               "/page2/wedding-ring.png",
               ceremonyAddress,
-              <LuChurch size={30} color="#8e5c4e" />
+              <LuChurch size={30} className="text-ColorWeb2" />
             );
 
             map.setCenter(ceremonyLocation);
@@ -138,7 +140,7 @@ const Map: React.FC<MapProps> = ({
                     receptionName,
                     "/page2/dinner-table.png",
                     receptionAddress,
-                    <RiRestaurant2Line size={30} color="#8e5c4e" />
+                    <RiRestaurant2Line size={30} className="text-ColorWeb2" />
                   );
                 } else {
                   console.error(
@@ -162,7 +164,11 @@ const Map: React.FC<MapProps> = ({
     }
   }, [ceremonyAddress, receptionAddress, ceremonyName, receptionName]);
 
-  return <div ref={mapRef} className="w-full h-[400px]" />;
+  return (
+    <>
+      <div ref={mapRef} className="w-full h-[400px]" />
+    </>
+  );
 };
 
 export default Map;
