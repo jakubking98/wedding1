@@ -32,7 +32,7 @@ export default function CeremonyInfo() {
         <LineInHeader />
       </div>
       <div className="w-full max-w-[1050px] md:bg-white z-10 text-center p-6 md:p-10 px-6 md:px-16 md:rounded-3xl md:shadow-lg">
-        <h1 className="text-2xl md:text-4xl font-bold text-OrcheidDark mb-6 md:mb-10 tracking-wide font-comfortaa">
+        <h1 className="text-2xl md:text-4xl font-bold text-ColorWeb2 mb-6 md:mb-10 tracking-wide font-comfortaa">
           {WebsiteContent2.CeremonyText.mainText}
         </h1>
         <div className="mb-8 md:mb-12">
@@ -42,7 +42,7 @@ export default function CeremonyInfo() {
           <p className="text-ColorWeb4 mb-6 md:mb-8 font-comfortaa">
             {WebsiteContent2.CeremonyText.topText2}
           </p>
-          <div className="text-2xl md:text-3xl font-bold text-OrcheidDark mb-4 md:mb-5 font-comfortaa">
+          <div className="text-2xl md:text-3xl font-bold text-ColorWeb2 mb-4 md:mb-5 font-comfortaa">
             {WebsiteContent2.subHeading}
           </div>
           <div className="mb-6 md:mb-8 max-w-fit mx-auto">

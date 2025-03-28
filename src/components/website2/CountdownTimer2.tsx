@@ -62,7 +62,7 @@ const CountdownTimer2: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
             key={key}
             className="bg-white rounded-xl shadow-md p-3 md:p-4 text-center w-24 font-comfortaa"
           >
-            <span className="block text-3xl font-bold text-OrcheidDark">
+            <span className="block text-3xl font-bold text-ColorWeb2">
               {timeLeft[key as keyof TimeLeft]}
             </span>
             <span className="block text-sm uppercase text-ColorWeb3">
@@ -71,11 +71,11 @@ const CountdownTimer2: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
           </div>
         ))
       ) : isClient && timeLeft === null ? (
-        <span className="text-OrcheidDark font-comfortaa text-xl tracking-widest">
+        <span className="text-ColorWeb2 font-comfortaa text-xl tracking-widest">
           Wesele już się odbyło!
         </span>
       ) : (
-        <span className="text-OrcheidDark font-comfortaa text-xl tracking-widest">
+        <span className="text-ColorWeb2 font-comfortaa text-xl tracking-widest">
           Loading...
         </span>
       )}
