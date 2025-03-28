@@ -21,9 +21,6 @@ module.exports = {
         ColorWeb2: "#8e5c4e",
         ColorWeb3: "#282727",
         ColorWeb4: "#786e69",
-
-        LitePink: "#e9d7d2",
-        Pastel: "#8e5c4e",
       },
       textShadow: {
         default: "0 2px 4px rgba(0, 0, 0, 0.10)",
@@ -44,6 +41,10 @@ module.exports = {
           "0%": { transform: "rotate(-40deg)" },
           "100%": { transform: "rotate(-20deg)" },
         },
+        treeRotate3: {
+          "0%": { transform: "rotate(-100deg)" },
+          "100%": { transform: "rotate(-120deg)" },
+        },
         float: {
           "0%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
@@ -53,6 +54,7 @@ module.exports = {
       animation: {
         treeRotate: "treeRotate 15s ease-in-out infinite alternate",
         treeRotate2: "treeRotate2 15s ease-in-out infinite alternate",
+        treeRotate3: "treeRotate3 15s ease-in-out infinite alternate",
         float: "float 5s ease-in-out infinite",
       },
     },

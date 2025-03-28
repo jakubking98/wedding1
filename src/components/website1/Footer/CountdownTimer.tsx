@@ -55,14 +55,14 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ weddingDate }) => {
   ];
 
   return (
-    <div className="text-black font-marcellus text-xl tracking-widest flex gap-4 justify-center">
+    <div className="text-ColorWeb2 font-marcellus text-xl tracking-widest flex gap-4 justify-center">
       {isClient && timeLeft ? (
         timerComponents.map(({ key, label }) => (
           <span key={key} className="mx-1 text-center">
             <span className="block text-3xl">
               {timeLeft[key as keyof TimeLeft]}
             </span>
-            <span className="block text-sm">{label}</span>
+            <span className="block text-sm text-ColorWeb3">{label}</span>
           </span>
         ))
       ) : isClient && !timeLeft ? (

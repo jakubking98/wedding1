@@ -14,10 +14,10 @@ import ReceptionDetails from "./WeddingSlider/ReceptionDetails";
 export default function WeddingDetails() {
   return (
     <section className="w-full bg-white py-24 px-4 relative overflow-hidden">
-      <div className="absolute top-10 md:top-0  right-0 md:-left-1/3  -translate-y-1/4 -translate-x-1/2 md:-translate-x-[75%] md:-translate-y-1/2 animate-treeRotate2 text-LitePink z-0 ">
+      <div className="absolute top-10 md:top-0  right-0 md:-left-1/3  -translate-y-1/4 -translate-x-1/2 md:-translate-x-[75%] md:-translate-y-1/2 animate-treeRotate2 text-ColorWeb1 z-0 ">
         <TreeSvg />
       </div>
-      <div className="absolute -bottom-1 right-0 w-full text-LitePink transform scale-x-[-1] ">
+      <div className="absolute -bottom-1 right-0 w-full text-ColorWeb1 transform scale-x-[-1] ">
         <LineInHeader />
       </div>
 
@@ -45,7 +45,7 @@ export default function WeddingDetails() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-12 h-12 text-Pastel"
+              className="w-12 h-12 text-ColorWeb2"
             >
               <path
                 strokeLinecap="round"
@@ -61,7 +61,7 @@ export default function WeddingDetails() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-12 h-12 text-Pastel"
+              className="w-12 h-12 text-ColorWeb2"
             >
               <path
                 strokeLinecap="round"
@@ -72,13 +72,13 @@ export default function WeddingDetails() {
           </div>
           <SwiperSlide>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-TextN mb-4">
+              <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-ColorWeb2 mb-4">
                 {WebsiteContent.weddingCeremony.title}
               </h2>
-              <p className="text-2xl font-baskervville text-TextN max-w-2xl mx-auto mb-8">
+              <p className="text-2xl font-baskervville text-ColorWeb3 max-w-2xl mx-auto mb-8">
                 {WebsiteContent.weddingCeremony.subtitle}
               </p>
-              <div className="w-40 h-px bg-LitePink mx-auto"></div>
+              <div className="w-40 h-px bg-ColorWeb2 mx-auto"></div>
             </div>
             <div className="px-2 md:px-0">
               <CeremonyDetails />
@@ -86,13 +86,13 @@ export default function WeddingDetails() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-TextN mb-4">
+              <h2 className="text-4xl md:text-5xl font-marcellus tracking-widest text-ColorWeb2 mb-4">
                 {WebsiteContent.weddingReception.title}
               </h2>
-              <p className="text-2xl font-baskervville text-TextN max-w-2xl mx-auto mb-8">
+              <p className="text-2xl font-baskervville text-ColorWeb3 max-w-2xl mx-auto mb-8">
                 {WebsiteContent.weddingReception.subtitle}
               </p>
-              <div className="w-40 h-px bg-LitePink mx-auto"></div>
+              <div className="w-40 h-px bg-ColorWeb1 mx-auto"></div>
             </div>
             <div className="px-2 md:px-0">
               <ReceptionDetails />

@@ -16,7 +16,6 @@ export default function Page1() {
   const faqRef = useRef<HTMLDivElement>(null);
   const ceremonyInfoRef = useRef<HTMLDivElement>(null);
 
-  // Create the refs object using useMemo to avoid unnecessary re-renders
   const refs = useMemo(
     () => ({
       aboutUs: aboutUsRef as React.RefObject<HTMLDivElement>, // Corrected: Changed to "aboutUs"

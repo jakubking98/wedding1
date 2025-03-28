@@ -7,8 +7,8 @@ const CeremonyDetails = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-      <div className="lg:w-1/2 w-full">
-        <div className=" border-2 border-Pastel p-4 shadow-lg overflow-hidden z-20 rounded-3xl">
+      <div className="lg:w-1/2 w-full  md:pl-4">
+        <div className=" border-2 border-ColorWeb2 p-4 overflow-hidden z-20 rounded-3xl">
           <Image
             src={ceremonyImage}
             alt="Wedding Ceremony"
@@ -19,13 +19,13 @@ const CeremonyDetails = () => {
         </div>
       </div>
       <div className="lg:w-2/3 w-full relative">
-        <div className="bg-Pastel border-2 border-Pastel p-6 md:p-12 rounded-3xl shadow-xl relative z-20">
+        <div className="bg-ColorWeb2 border-2 border-ColorWeb2 p-6 md:p-12 rounded-3xl relative z-20">
           <div className="prose prose-sm md:prose-lg text-white font-marcellus">
-            <p className="text-base md:text-lg leading-relaxed">
+            <p className="text-base  leading-relaxed">
               {weddingCeremony.description}
             </p>
           </div>
-          <div className="font-baskervville text-white space-y-4 md:space-y-8 mt-6 md:mt-12">
+          <div className="font-baskervville text-white md:space-y-8 mt-6 md:mt-12">
             <div>
               <h3 className="text-xl md:text-2xl font-marcellus text-white mb-2 md:mb-3">
                 {weddingCeremony.placeName}

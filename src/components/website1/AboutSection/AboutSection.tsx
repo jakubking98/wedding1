@@ -3,11 +3,11 @@ import Image from "next/image";
 import { WebsiteContent } from "../WebsiteContent";
 
 export default function AboutSection() {
-  const { mainTitle, subTitle, description, buttonText, image1, image2 } =
+  const { mainTitle, subTitle, description, image1, image2 } =
     WebsiteContent.aboutSection;
 
   return (
-    <section className="w-full bg-Pastel py-24 px-4">
+    <section className="w-full bg-ColorWeb2 py-10 px-4">
       <div className="max-w-[1650px] mx-auto flex flex-col lg:flex-row-reverse items-center gap-4  md:gap-16">
         <div className="lg:w-2/3 lg:text-left text-center">
           <h1 className="text-4xl md:text-5xl font-marcellus tracking-wider text-white mb-6">
@@ -21,13 +21,7 @@ export default function AboutSection() {
               <p key={index}>{paragraph}</p>
             ))}
           </div>
-          <div className="w-20 h-px bg-white mb-12 mx-auto lg:mx-0"></div>{" "}
-          <a
-            href="#"
-            className="inline-block font-marcellus text-lg tracking-wider border-b border-white text-white hover:text-amber-200 pb-1 hover:border-amber-200 transition-colors duration-300"
-          >
-            {buttonText}
-          </a>
+          <div className="w-40 h-px bg-white mb-12 mx-auto lg:mx-0"></div>{" "}
         </div>
 
         <div className="lg:w-1/2 relative h-[600px] w-full md:w-1/2  mx-auto lg:mx-0">
