@@ -46,7 +46,7 @@ export default function AboutUs() {
                   <div className=" border-4 rounded-t-full border-ColorWeb1 w-full h-full">
                     <div className="relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150px] h-[200px] md:w-[200px] md:h-[250px] rounded-t-full overflow-hidden">
                       <Image
-                        src="/pan.jpg"
+                        src="/Pan.jpg"
                         alt="Pan Młody"
                         fill
                         className="object-cover object-top"
