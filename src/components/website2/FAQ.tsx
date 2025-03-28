@@ -31,9 +31,9 @@ export default function FAQ() {
   const faqColumns = splitFaqsIntoColumns(faqs);
 
   return (
-    <section id="info" className="w-full relative py-20 bg-LitePink">
+    <section id="info" className="w-full relative py-20 bg-ColorWeb1">
       <div className="max-w-[1600px] mx-auto bg-white p-8 border border-gray-200 rounded-2xl shadow-lg">
-        <h2 className="text-4xl font-bold text-OrcheidDark text-center mb-10 font-comfortaa">
+        <h2 className="text-4xl font-bold text-ColorWeb2 text-center mb-10 font-comfortaa">
           Najczęściej Zadawane Pytania
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -43,7 +43,7 @@ export default function FAQ() {
               {/* Added space-y-10 here */}
               {column.map((faq, index) => (
                 <div key={index}>
-                  <h3 className="text-2xl font-semibold text-OrcheidDark mb-4 font-comfortaa">
+                  <h3 className="text-2xl font-semibold text-ColorWeb3 mb-4 font-comfortaa">
                     {faq.category}
                   </h3>
                   <div className="space-y-4">
