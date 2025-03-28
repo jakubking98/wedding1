@@ -44,8 +44,8 @@ const allura = Allura({
 });
 
 export const metadata: Metadata = {
-  title: "JezioroSfera",
-  description: "Strona JezioroSfera",
+  title: "Nasze Wesele",
+  description: "Strona Nasze Wesele",
 };
 
 export default function RootLayout({
